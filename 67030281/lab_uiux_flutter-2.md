@@ -382,8 +382,8 @@ Screenshot หน้าจอ Design ทั้ง 3 หน้า และบั
 Green Market by ชนินทร์ , Primary #3e6700
 Component ที่ใช้ App Bar, Bottom Navigation, Card
 
+<img width="1160" height="800" alt="ชนินทร์_Week03_MobileUI" src="https://github.com/user-attachments/assets/689075cd-7077-49b6-aa5e-571989c86ad8" />
 
-![[ชนินทร์_Week03_MobileUI 1.png]]
 ---
 
 ### การทดลองที่ 3: แปลง Design เป็น Flutter Code
