@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#f9faef",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -197,6 +196,8 @@
   },
   "active": "0063efcc3bbbdade",
   "lastOpenFiles": [
+    "ชนินทร์_Week03_MobileUI 1.png",
+    "ชนินทร์_Week03_MobileUI.png",
     "Untitled.base",
     "67030281/lab_uiux_flutter-2.md",
     "Untitled 1.base",
