@@ -882,7 +882,8 @@ flutter run
 - [x] FAB แสดง SnackBar เมื่อถูกคลิก
 
 **แก้ไขเปลี่ยนแปลง App Bar ให้แสดง คำว่า "Dev by" ตามด้วยชื่อนักศึกษา** แล้วบันทึกรูปผลการทดลอง
-![[Green Market Dev by ชนินทร์.png]]
+<img width="1920" height="1200" alt="Green Market Dev by ชนินทร์" src="https://github.com/user-attachments/assets/ba4c0056-1dc8-468b-808a-72bcd278f71c" />
+
 ---
 
 ### การทดลองที่ 4: ใช้ AI ช่วย Generate UI Component (30 นาที)
