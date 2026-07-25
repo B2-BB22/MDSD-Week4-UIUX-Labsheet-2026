@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/item_card.dart';
+import '../widgets/user_profile_card.dart'; // เพิ่ม import ตัวนี้
 import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,32 +48,30 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Green Market',
+          centerTitle: true,
+          title: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Green Market',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-            ),
-            Text(
-              'Dev by ชนินทร์', // <-- แก้ตรงนี้เป็นชื่อของคุณ
+              ),
+              Text(
+                'Dev by ชนินทร์',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
-      ),
-    ],
-  ),
-  actions: [
-    IconButton(
-      icon: const Icon(Icons.search),
-      onPressed: () {},
-      tooltip: 'ค้นหาสินค้า',
-    ),
-  ],
-),
-      // ---- แก้จุดนี้: เรียก _buildBody() แทนการผูก ListView ตายตัว ----
+              ),
+            ],
+          ),
+          actions: [
+              IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {},
+                tooltip: 'ค้นหาสินค้า',
+              ),
+            ],
+        ),
       body: _buildBody(),
-      // ทำให้ FAB แสดงเฉพาะหน้าหลัก (tab 0) จะได้ดูเป็นธรรมชาติขึ้น
-      // (ถ้าอยากให้แสดงทุก tab เหมือนเดิม ลบเงื่อนไข if ออกแล้วคง FAB ไว้ตรงๆ ได้)
+      // FAB แสดงเฉพาะหน้าหลัก (tab 0)
       floatingActionButton: _selectedIndex == 0
           ? FloatingActionButton.extended(
               onPressed: () {
@@ -111,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // ---- ฟังก์ชันใหม่: สลับเนื้อหาตาม tab ที่เลือก ----
+  // สลับเนื้อหาตาม tab ที่เลือก
   Widget _buildBody() {
     switch (_selectedIndex) {
       case 0:
@@ -121,15 +120,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Text('หน้าค้นหา (อยู่ระหว่างพัฒนา)'),
         );
       case 2:
-        return const Center(
-          child: Text('หน้าโปรไฟล์ (อยู่ระหว่างพัฒนา)'),
-        );
+        return _buildProfileTab(); // <-- เปลี่ยนจาก placeholder เป็น Profile Card จริง
       default:
         return _buildProductList();
     }
   }
 
-  // ---- ย้าย ListView.builder เดิมมาไว้ในฟังก์ชันนี้ ----
+  // รายการสินค้าแบบ ListView (tab หน้าหลัก)
   Widget _buildProductList() {
     return ListView.builder(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -153,6 +150,36 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         );
       },
+    );
+  }
+
+  // เนื้อหา tab โปรไฟล์ — ใช้ UserProfileCard ที่สร้างไว้
+  Widget _buildProfileTab() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Center(
+        child: SizedBox(
+          width: double.infinity,
+          child: UserProfileCard(
+            name: 'สมชาย ใจดี',
+            email: 'student_ID@kmitl.ac.th',
+            avatarUrl: null, // ใส่ null เพื่อทดสอบ Initials Fallback (หรือใส่ URL รูปจริง)
+            postsCount: 12,
+            followersCount: 340,
+            followingCount: 88,
+            onFollowPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('กดปุ่มติดตามแล้ว')),
+              );
+            },
+            onMessagePressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('เปิดหน้าส่งข้อความ')),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }

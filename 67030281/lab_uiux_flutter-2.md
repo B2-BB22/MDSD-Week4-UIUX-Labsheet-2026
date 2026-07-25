@@ -923,12 +923,12 @@ Add brief comments explaining each section.
 
 อ่าน code ที่ AI สร้างและตอบคำถาม:
 
-| คำถาม | คำตอบ |
-|-------|-------|
-| AI ใช้ Widget อะไรสร้าง Avatar? | _________________ |
-| AI handle กรณี avatarUrl เป็น null อย่างไร? | _________________ |
-| AI ใช้ color จาก Theme หรือ hardcode? | _________________ |
-| มีส่วนไหนที่ควรปรับปรุง? | _________________ |
+| คำถาม                                       | คำตอบ                                                                                                                                                                                                  |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| AI ใช้ Widget อะไรสร้าง Avatar?             | CircleAvatar (radius: 32)                                                                                                                                                                              |
+| AI handle กรณี avatarUrl เป็น null อย่างไร? | เช็ค `!= null && isNotEmpty` → มี URL ใช้ `NetworkImage`, ถ้า null/ว่าง แสดง `Text(_getInitials(name))` แทน                                                                                            |
+| AI ใช้ color จาก Theme หรือ hardcode?       | ใช้ `Theme.of(context).colorScheme` ทั้งหมด ไม่มี hardcode                                                                                                                                             |
+| มีส่วนไหนที่ควรปรับปรุง?                    | เพิ่ม error handling รูปโหลดไม่สำเร็จ, เพิ่ม Semantics/Tooltip เพื่อ Accessibility, เพิ่ม `onTap`+`InkWell` ให้กดการ์ดได้ (และแก้ typo `CrossAlignment` → `CrossAxisAlignment` ที่ทำให้คอมไพล์ไม่ผ่าน) |
 
 **ขั้นตอนที่ 4.4: นำ Code ไปใช้ใน Project**
 
