@@ -383,7 +383,8 @@ Green Market by ชนินทร์ , Primary #3e6700
 Component ที่ใช้ App Bar, Bottom Navigation, Card
 
 
-![[ชนินทร์_Week03_MobileUI 1.png]]
+<img width="1160" height="800" alt="ชนินทร์_Week03_MobileUI" src="https://github.com/user-attachments/assets/6bcca831-5c03-428d-8862-9c604e71ac1a" />
+
 ---
 
 ### การทดลองที่ 3: แปลง Design เป็น Flutter Code
