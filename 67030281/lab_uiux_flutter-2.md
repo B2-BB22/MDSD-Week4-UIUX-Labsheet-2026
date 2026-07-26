@@ -487,25 +487,72 @@ class MyApp extends StatelessWidget {
 
 **ขั้นตอนที่ 3.3: วิเคราะห์ Design เป็น Widget Tree**
 
-ก่อนเขียน code ให้วาด Widget Tree บนกระดาษหรือ Whiteboard:
-
 ```
-สำหรับ Green Market Home Screen:
+Home Screen:
 
 Scaffold
 ├── AppBar
-│   └── Text("Green Market")
+│   ├── leading: IconButton (menu)
+│   ├── title: Text("Green market by ชนินทร์")
+│   └── actions: IconButton (apps/group icon ในวงกลม)
 ├── body: ListView
-│   ├── ItemCard (ผักสลัดออร์แกนิก)
-│   ├── ItemCard (สตรอว์เบอร์รีสด)
-│   ├── ItemCard (กล้วยหอมทอง)
-│   └── ItemCard (มะเขือเทศเชอร์รี)
+│   └── ItemCard × 4 (ผักสลัดออร์แกนิก, สตรอว์เบอร์รีสด, กล้วยหอมทอง, มะเขือเทศเชอร์รี)
+│       ├── CircleAvatar ("A", primaryContainer)
+│       ├── Column
+│       │   ├── Text (ชื่อสินค้า, titleMedium)
+│       │   └── Text (รายละเอียด + ราคา, bodyMedium)
+│       └── Icon stack (placeholder ไอคอน 2 อัน ด้านขวา)
 ├── floatingActionButton: FloatingActionButton.extended ("+ เพิ่มสินค้า")
 └── bottomNavigationBar: NavigationBar
-      ├── NavigationDestination (หน้าหลัก)
-      ├── NavigationDestination (ค้นหา)
-      └── NavigationDestination (โปรไฟล์)
+    ├── NavigationDestination (หน้าหลัก) — Active
+    ├── NavigationDestination (ค้นหา)
+    └── NavigationDestination (โปรไฟล์)
 ```
+
+----
+```
+Detail Screen:
+
+Scaffold
+├── AppBar
+│   ├── leading: IconButton (arrow_back)
+│   ├── title: Text("รายละเอียดสินค้า")
+│   └── actions: IconButton (apps/group icon ในวงกลม)
+├── body: Column
+│   ├── Container (banner รูปผักสลัด, height ~230, primaryContainer)
+│   └── Padding(16)
+│       └── Column
+│           ├── Text (ผักสลัดออร์แกนิก, headlineMedium)
+│           ├── Text (45 บาท / กิโลกรัม, titleMedium + primary)
+│           ├── Text ("รายละเอียดสินค้า", titleLarge)
+│           └── Text (คำบรรยาย, bodyLarge)
+└── bottomBar/footer (คงที่ด้านล่าง)
+    └── Row
+        ├── FilledButton.icon ("ย้อนกลับ", สีเขียวเข้ม)
+        └── FilledButton.icon ("เพิ่มลงตะกร้าสินค้า", สีเขียวอ่อน)
+```
+---
+```
+Profile Screen:
+
+Scaffold
+├── AppBar
+│   ├── leading: IconButton (arrow_back)
+│   ├── title: Text("โปรไฟล์ผู้ใช้")
+│   └── actions: IconButton (apps/group icon ในวงกลม)
+├── body: Column
+│   ├── CircleAvatar (สีเขียวเข้ม)
+│   │   └── Icon (person)
+│   ├── Text (ชนินทร์ คำวงศ์ษา, titleLarge)
+│   ├── Text (67030281@kmitl.ac.th, bodyMedium)
+│   └── OutlinedButton.icon ("แก้ไขข้อมูลโปรไฟล์")
+└── bottomNavigationBar: NavigationBar
+    ├── NavigationDestination (หน้าหลัก)
+    ├── NavigationDestination (ค้นหา)
+    └── NavigationDestination (โปรไฟล์) — Active
+
+```
+---
 
 **ขั้นตอนที่ 3.4: สร้างไฟล์โครงสร้าง**
 
