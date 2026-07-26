@@ -161,8 +161,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SizedBox(
           width: double.infinity,
           child: UserProfileCard(
-            name: 'สมชาย ใจดี',
-            email: 'student_ID@kmitl.ac.th',
+            name: 'ชนินทร์ คำวงศ์ษา',
+            email: '67030281@kmitl.ac.th',
             avatarUrl: null, // ใส่ null เพื่อทดสอบ Initials Fallback (หรือใส่ URL รูปจริง)
             postsCount: 12,
             followersCount: 340,
