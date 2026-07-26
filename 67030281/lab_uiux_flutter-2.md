@@ -1001,9 +1001,9 @@ Add brief comments explaining each section.
 5. ดู Code และ Widget Tree ที่ได้ และเปรียบเทียบกับ  Code และ Widget tree ที่เขียนเองในการทดลองที่ 3
    
 ---
-**5.1 บั๊กที่พบ:** `CrossAlignment` ผิด (ต้องเป็น `CrossAxisAlignment`) พบ 3 จุด — compile ไม่ผ่านถ้าไม่แก้ (บั๊กเดิมซ้ำจากรอบก่อน)
+**4.5.1 บั๊กที่พบ:** `CrossAlignment` ผิด (ต้องเป็น `CrossAxisAlignment`) พบ 3 จุด — compile ไม่ผ่านถ้าไม่แก้ (บั๊กเดิมซ้ำจากรอบก่อน)
 
-**5.2 สถาปัตยกรรมต่างกัน:**
+**4.5.2 สถาปัตยกรรมต่างกัน:**
 
 ||Implement จริง|โค้ดใหม่|
 |---|---|---|
@@ -1011,7 +1011,7 @@ Add brief comments explaining each section.
 |สลับ Tab|switch-case ใน HomeScreen|`IndexedStack` ที่ `MainNavigationScreen` (ดีกว่า — state ไม่หาย)|
 |Bottom Nav|อยู่ใน HomeScreen|อยู่ระดับบนสุด (ถูกหลักกว่า)|
 
-**5.3 UI ต่างกัน:**
+**4.5.3 UI ต่างกัน:**
 
 - AppBar: โค้ดใหม่มี `actions` icon ครบ ตรงกับ Figma มากกว่า
 - ปุ่ม Detail: โค้ดใหม่ใช้ Filled ทั้งคู่ ตรงกับ Figma มากกว่า
